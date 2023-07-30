@@ -5,8 +5,6 @@ Examples (Input ==> Output):
 
 "I love arrays they are my favorite" ==> ["I", "love", "arrays", "they", "are", "my", "favorite"]*/
 
-function stringToArray(string) {
-  return string.split(" ");
-}
 
 const stringToArray = (string) => string.split(" ");
+console.log(stringToArray('I LOVE YOU TOO'));

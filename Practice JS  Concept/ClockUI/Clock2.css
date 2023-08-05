@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background:black;
+  }
+  
+  .contianer{
+    font-size:20px;
+    color: #f7e519;
+    text-transform: uppercase;
+    text-align:center;
+    margin: 100px auto;
+    width: 80%;
+    height: 70%;
+  }
+  
+  .clock{
+    margin-top:50px;
+    font-weight: bold;
+    font-size: 120px;
+  }
+  
+  #day{
+      font-size: 45px;
+      font-weight: bold;
+      color:#FB2576;
+  }
+  #date{
+      font-size: 50px;
+      font-weight: bold;
+      color:#FB2576;
+  }

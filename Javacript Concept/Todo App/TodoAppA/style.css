@@ -1,0 +1,63 @@
+/* 
+color: #e9ecef
+ffont-family: 'Rubik', sans-serif;
+*/
+html {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+* {
+  font-family: "Rubik", sans-serif;
+}
+.main-container {
+  height: 100vh;
+  background-color: #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todo-container {
+  height: 85%;
+  width: 50%;
+  background-color: #343a40;
+  border-radius: 15px;
+  box-shadow: 0 0 4px #0a0a0a;
+  overflow: hidden;
+}
+.header {
+  color: #e9ecef;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+}
+.todo-creator {
+  padding: 0 0.5rem 0 0.5rem;
+}
+.btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+#todos {
+  height: 460px;
+  margin-top: 5px;
+  width: auto;
+  overflow-y: scroll;
+}
+.contents {
+  color: #e9ecef;
+  background-color: #495057;
+  padding: 5px 10px 5px 10px;
+  margin: 3px 5px 3px 5px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+}
+h3 {
+  color: #f76707;
+}
+.btn-delete {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
+}

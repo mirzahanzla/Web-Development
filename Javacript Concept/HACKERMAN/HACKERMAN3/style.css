@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+    width: 100%;
+  }
+      body {
+          background-image: url('bg-haking.jpeg');
+          position: relative;
+      }
+  
+      #text {
+          margin-left: 55%;
+          margin-top: 10%;
+          color: rgb(220, 69, 69);
+          position: absolute;  
+      }
+      
+      #bg{
+          margin-left: 50%;
+          height: 200px;
+          width: 600px;
+      }

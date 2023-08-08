@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Hackerman</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      background-image: url("https://t4.ftcdn.net/jpg/05/50/95/87/360_F_550958748_OeGcRonEUNoVhd0wjd9zSEMhLFIGO9Bt.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 36px;
+      margin-top: 50px;
+    }
+
+    label {
+      color: white;
+      font-size: 18px;
+    }
+
+    select,
+    button {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #output {
+      color: #13fb13;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hackerman</h1>
+  <label for="friend">Enter a friend's name to hack:</label>
+  <input type="text" id="friend">
+  <br><br>
+  <button onclick="hack()">Hack</button>
+  <div id="output"></div>
+  <script src="script.js"></script>
+ 
+</body>
+
+</html>

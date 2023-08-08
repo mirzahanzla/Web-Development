@@ -1,0 +1,102 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+#page {
+  background-color: #0b112f;
+}
+
+#containerHome {
+  border: 1px solid #ffc107;
+  background-color: rgb(7 43 77 / 74%);
+  border-radius: 12px;
+}
+
+#btns {
+  /*PARENT DIV*/
+  position: relative;
+  overflow: hidden;
+  height: 80%;
+}
+#createTododiv {
+  /*PARENT DIV*/
+  height: 20% !important;
+}
+
+.cstbtn {
+  /*FOR BOTH THE BUTTONS*/
+  margin-top: 1rem;
+  width: 9rem;
+  height: 3rem;
+}
+#createTodobtn {
+  /*BUTTON 1ST*/
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0%;
+}
+
+#crossbtn {
+  cursor: pointer;
+  position: absolute;
+  right: 3%;
+  top: 1%;
+}
+
+#viewAllTodo {
+  /*BUTTON 2ND*/
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+  margin-top: 1rem !important;
+  display: block;
+}
+
+#createTodoText {
+  height: 18rem;
+  width: 90%;
+  position: absolute;
+  background-color: #000624;
+  left: -101%;
+  opacity: 0.1;
+  transition: 0.5s !important;
+}
+.form-control {
+  border: none !important;
+  border-bottom: 1px solid rgb(13, 202, 240) !important;
+  border-radius: 0% !important;
+}
+
+#todoTextPara {
+  max-height: 10% !important;
+}
+.form-control:focus {
+  box-shadow: none !important;
+}
+.textBoxTransition {
+  left: 5% !important;
+  opacity: 1 !important;
+  transition: 1.5s !important;
+}
+
+#todo {
+  max-height: 70% !important;
+  font-size: 0.8rem !important;
+  transform: translateY(-111%);
+  transition: 0.3s;
+}
+.todoListTransition {
+  transform: translateY(0%) !important;
+  transition: 0.3s;
+}
+
+#crossbtnList {
+  font-size: 2rem;
+}

@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Serif:ital,wght@1,500&family=Kalam:wght@700&family=Lora:ital,wght@1,700&family=Open+Sans:wght@500&family=Permanent+Marker&family=Satisfy&display=swap");
+html,
+body {
+  height: 100%;
+  width: 100%;
+  /*   background-color: lightgoldenrodyellow; */
+  background: url("My\ notes.PNG") no-repeat center center/cover;
+}
+
+.center {
+  padding: 29px 20px 0px 10px;
+}
+
+.cent {
+  color: #390101;
+  margin: 6px;
+  font-size: 1.35rem;
+}
+#note {
+  width: 378px;
+  height: 208px;
+  border-radius: 10px;
+  /*    border: double 4px #000000; */
+  font-size: 0.95rem;
+  padding: 5px 9px;
+  margin-top: 6px;
+  box-shadow: 0px 0px 11px black;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+#title {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 6px;
+  width: 251px;
+  font-size: 1.1rem;
+  box-shadow: 0px 0px 11px black;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+#box {
+  align-items: center;
+  margin: auto;
+  border-radius: 5px;
+  float: right;
+  top: 57px;
+  position: absolute;
+  right: 14px;
+  height: 405px;
+  width: 412px;
+  box-shadow: 0px 0px 11px #787373;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 8px 14px;
+  font-family: "Kalam", cursive;
+}
+#box img {
+  height: 50x;
+  width: 182px;
+  /* border-radius: 4px; */
+  /*  margin: 83px 121px; */
+  opacity: 0.2;
+  position: fixed;
+  right: 121px;
+  top: 90px;
+  user-select: none;
+}
+.btnn {
+  margin-left: 94px;
+}
+.btn {
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 4.3px 14px;
+  font-family: "IBM Plex Serif", serif;
+  margin: 2px 17px 5px 21px;
+  cursor: pointer;
+}
+#btn1 {
+  /*     background-color: #035c03; */
+  box-shadow: 0px 0px 11px black;
+  background-color: rgba(34, 139, 34, 0.3);
+  backdrop-filter: blur(10px);
+  color: #014b01;
+  border: none;
+}
+#btn2 {
+  box-shadow: 0px 0px 11px black;
+  background-color: rgba(255, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: #750000;
+  border: none;
+}
+#tag {
+  position: relative;
+  float: right;
+  right: 183px;
+  top: -8px;
+  text-shadow: 0px 0px 5px #9e9a9a;
+  color: rgba(139, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  margin-right: -61px;
+}
+/* #watermark{
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+   align-items: center; 
+    margin-top: 149px;
+    z-index: -1; 
+}*/
+#cont {
+  margin: 26px 35px;
+}
+
+.strike {
+  text-decoration: line-through red 2px;
+  opacity: 0.58;
+}
+.strike1 {
+  text-decoration: line-through blue 2px;
+  opacity: 0.58;
+}
+/* #cont h2{
+    margin: 1px;
+}
+#cont p{
+    margin: 1px;
+} */
+/* #boxh3 div{ 
+    border:2px red solid;
+    margin:2px;
+} */
+#boxph2 h2 {
+  padding: 6px 0px 0px 24px;
+  box-shadow: 0px 0px 5px #9e9a9a;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  margin: 0px;
+  border-radius: 0px 13px 0px 0px;
+  user-select: none;
+  color: rgb(64, 66, 88);
+  cursor: pointer;
+}
+#boxph2 p {
+  padding: 0px 0px 4px 24px;
+  /* background-color: #3de69d; */
+  box-shadow: 0px 0px 5px #9e9a9a;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  margin: 0px 0px 14px 0px;
+  border-radius: 0px 0px 0px 13px;
+  user-select: none;
+  color: rgb(22, 33, 62);
+  cursor: pointer;
+}
+/* #cont{
+    box-shadow:0px 0px 7px #908989 ;
+    background-color: rgba(240,147,43,0.5);
+    backdrop-filter:blur(10px);
+    padding: 0px 18px ;
+    border-radius:5px;
+    user-select: none;
+    margin: 1px
+   animation: move 1s ease-in-out infinte forwards;
+} */
+/* @keyframes move{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(40px);
+    }
+    100%{
+        transform: translateX(80px)
+    }
+} */
+.center input::placeholder {
+  font-family: "IBM Plex Serif", serif;
+  padding-left: 8px;
+}
+textarea::placeholder {
+  font-family: "IBM Plex Serif", serif;
+  padding-left: 8px;
+  font-size: 1.2rem;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #620404;
+  border-width: 1.5px;
+}
+input:focus {
+  outline: none;
+  /*     border-color:#620404 ;
+    border-width: 1.5px; */
+}

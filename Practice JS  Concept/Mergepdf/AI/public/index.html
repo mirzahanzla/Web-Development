@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Centrix</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      --primary-color: #45b1ff;
+      background: linear-gradient(to right, var(--primary-color), #65bfff, #6fc3ff);
+      font-family: sans-serif;
+      font-size: 16px;
+      transition: background-color 0.5s ease-in-out;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.5s ease-in-out;
+    }
+
+    h2 {
+      font-size: 5vh;
+      margin-bottom: 15px;
+      color: black;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .modal-dialog {
+      display: inline-block;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      margin: 20px;
+      color: black;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .inputGroup {
+      display: flex;
+      align-items: center;
+      max-width: 94vw;
+      margin: 20px auto 0;
+      padding: 10px;
+      border-radius: 0.7rem;
+      background-color: white;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .btn {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+      transform: scale(1.2);
+    }
+
+    .btn:active {
+      transform: scale(1);
+    }
+
+    .btn img {
+      height: 30px;
+      margin: 0 10px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .form-control {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      padding: 10px;
+      transition: all 0.5s ease-in-out;
+      border-radius: 0.5rem;
+    }
+
+    .form-control:focus {
+      background-color: #e3e3e3;
+    }
+    .form-control:hover {
+      background-color: #eeeeee;
+    }
+
+    @media (max-width: 600px) {
+      /* Adjust styles for smaller screens */
+      h2 {
+        font-size: 24px;
+      }
+
+      .modal-title {
+        font-size: 20px;
+        margin: 10px;
+      }
+
+      .inputGroup {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+        padding: 5px;
+        border-radius: 10px;
+      }
+
+      .btn img {
+        height: 20px;
+      }
+
+      .form-control {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .copy {
+      margin-left: 0%;
+      margin-top: 0%;
+      height: 0vh;
+      width: 0vh;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .copy img {
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .report {
+      position: absolute;
+      bottom: 2vh;
+      right: 3vh;
+      font-size: 3vh;
+      background: #fff;
+      padding: 1vh 2vh;
+      border-radius: 1vh;
+    }
+    .newChat {
+      position: absolute;
+      bottom: 2vh;
+      left: 3vh;
+      font-size: 3vh;
+      background: #fff;
+      padding: 1vh 2vh;
+      border-radius: 1vh;
+    }
+    .number {
+      margin-bottom: 1vh;
+      text-align: left;
+      margin-left: 2vh;
+    }
+  </style>
+  <script authed="location.reload()" src="https://auth.util.repl.co/script.js"></script>
+</head>
+
+<body>
+  <div class="container mt-3">
+    <h2>Centrix</h2>
+    <div class="width modal-dialog mt-2 mb-2 white rounded" role="document">
+      <div class="modal-content rounded border">
+        <button id="copy" class="copy" onclick="copyText()"><img src="copy.png" alt="Copy text"></button>
+        <div class="modal-header">
+          <p class="modal-title fs-5 mt-2 mb-2" id="output"></p>
+        </div>
+        <h4 class="number"><span id="num"></span> of 5</h4>
+      </div>
+    </div>
+  </div>
+  <div class="inputGroup">
+    <button class="btn btn-link" id="listen-btn"><img class="mic" src="Mic.png" alt="send"></button>
+    <input type="text" class="form-control" id="prompt" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default">
+    <button class="btn btn-link" id="generate-btn"><img src="send.png" alt="send"></button>
+  </div>
+  <button class="btn report btn-primary" id="report">Report</button>
+  <button class="btn newChat btn-primary" onClick="cleanChat()" id="newChat">New Chat</button>
+  <script>
+    let chat = "";
+    let chatNumber = 0;
+    let chatNumberSpan = document.getElementById("num");
+    chatNumberSpan.innerHTML = chatNumber;
+    function cleanChat() {
+      document.getElementById("output").innerHTML = '';
+      document.getElementById("prompt").value = '';
+      chatNumber = 0
+      chat = "";
+    }
+
+    const generateText = async (query) => {
+      chatNumber++;
+      let copy = document.getElementById('copy');
+      chat += `You: ${query}. Centrix: `;
+      try {
+        const response = await fetch('/api/generate-text', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: chat }),
+        });
+        const data = await response.text();
+        chat += `${data}.`;
+        output.innerHTML = '';
+        console.log(data);
+        var index = 0;
+        output.innerHTML = "Centrix: "
+         chatNumberSpan.innerHTML = chatNumber;
+
+        function showLetter() {
+          if (index < data.length) {
+            output.textContent += data.charAt(index);
+            index++;
+            setTimeout(showLetter, 30);
+          }
+          if (index == data.length) {
+            copy.style.height = "3vh";
+            copy.style.width = "3vh";
+            copy.style.marginLeft = "97%";
+            copy.style.marginTop = "0.5%";
+          }
+        }
+        showLetter();
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    const listenText = async () => {
+      let query = document.getElementById('prompt');
+      // Request access to the microphone
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        // Create a new SpeechRecognition object
+        var recognition = new webkitSpeechRecognition();
+
+        // Set the recognition parameters
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = 'en-IN';
+
+        // Start the recognition
+        recognition.start();
+
+        // Event handler for when a result is received
+        recognition.onresult = function (event) {
+          var result = event.results[event.resultIndex];
+          if (result.isFinal) {
+            // Do something with the final result
+            query.value = '';
+            query.value = result[0].transcript;
+            console.log(result[0].transcript);
+            generateText(result[0].transcript);
+            // Stop the recognition
+            recognition.stop();
+          } else {
+            // Do something with the interim result
+            query.value = result[0].transcript;
+            console.log(result[0].transcript);
+            generateText(result[0].transcript);
+          }
+        };
+
+        // Event handler for when the recognition stops
+        recognition.onend = function () {
+          console.log('Recognition stopped.');
+        };
+      } catch (err) {
+        console.log('Error:', err);
+      }
+    };
+
+    const generateBtn = document.getElementById('generate-btn');
+    const listenBtn = document.getElementById('listen-btn');
+    generateBtn.addEventListener('click', () => {
+      if (chatNumber >= 5) {
+        output.innerHTML = 'Centrix: ';
+        let data = ("Your chat number is over! Please click on the new chat button...");
+          let index = 0;
+        function showletter(){
+          if (index < data.length) {
+            output.textContent += data.charAt(index);
+            index++;
+            setTimeout(showletter, 30);
+          }
+      }        
+        showletter()
+      } else {
+        let query = document.getElementById('prompt').value;
+        generateText(query);
+      }
+    });
+    listenBtn.addEventListener('click', listenText);
+
+    function copyText() {
+      // Get the text to copy
+      const textToCopy = document.getElementById("output");
+
+      // Create a temporary textarea element
+      const textarea = document.createElement("textarea");
+
+      // Set the value of the textarea to the text to copy
+      textarea.value = textToCopy;
+
+      // Add the textarea to the document
+      document.body.appendChild(textarea);
+
+      // Select the text in the textarea
+      textarea.select();
+
+      // Copy the selected text
+      document.execCommand("copy");
+
+      // Remove the textarea from the document
+      document.body.removeChild(textarea);
+
+      // Notify the user that the text has been copied
+      alert("Text copied to clipboard!");
+    }
+  </script>
+</body>
+
+</html>

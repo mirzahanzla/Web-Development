@@ -1,0 +1,38 @@
+{
+  "name": "project",
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.0.4",
+    "firebase": "^10.4.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-scripts": "^5.0.1",
+    "vite": "^4.4.9"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "babel-core": "^6.0",
+    "babel-loader": "^7.0",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*",
+    "webpack": "^2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "dev": "vite",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
